@@ -1,1 +1,1 @@
-web gunicorn djpoll.wsgi
+web: gunicorn djpoll.wsgi
