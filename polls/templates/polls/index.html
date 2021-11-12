@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DjPoll app</title>
+</head>
+<body>
+{% if five_latest_question_list %}
+  <ul>
+      {% for question in five_latest_question_list %}
+        <li>
+          {# 'detail' below is name of link in URLConf #}
+          <a href="{% url 'detail' question.id %}">{{ question.question_text}}</a>
+        </li>
+      {% endfor %}
+  </ul>
+{% else %}
+  <p>
+      No polls are available
+  </p>
+{% endif %}
+</body>
+</html>

@@ -1,4 +1,6 @@
-# from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.http import Http404
+from django.template import loader
 from django.http import HttpResponse
 from .models import Question
 
@@ -7,15 +9,36 @@ from .models import Question
 
 
 def index(request):
-    latest_question_list = Question.objects.order_by(
-        '-pub_date')[:5]  # get 5 latest things
-    output_results = "<br> ".join(
-        q.question_text for q in latest_question_list)
-    return HttpResponse("<html><body><h1>Questions:</h1>%s</body></html>" % output_results)
+    # get 5 latest things
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+
+    # by convention, Dj searches template in dir /polls/templates/
+    template = loader.get_template('polls/index.html')
+
+    # preparing data for transfering to template
+    context = {
+        'five_latest_question_list': latest_question_list
+    }
+
+    return HttpResponse(template.render(context, request))
+    # or shortcut of render() like this:
+    # return render(request, 'polls/index.html', context)
 
 
 def detail(request, question_id):
-    return HttpResponse("<html><body><h1>You are looking at detail of question: %s</h1></body></html>" % question_id)
+    try:
+        '''
+         question will consist of all choices related it
+         Django will automatically join them because of relation in DB
+         '''
+        question = Question.objects.get(pk=question_id)  # pk => primary key
+    except Question.DoesNotExist:
+        raise Http404("Question does not exist")
+
+    # or shortcut style of get and raise error:
+    # question = get_object_or_404(Question, pk=question_id)
+
+    return render(request, 'polls/detail.html', {'q': question})
 
 
 def results(req, question_id):
