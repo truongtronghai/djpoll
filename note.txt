@@ -1,0 +1,15 @@
+DB for PostgresSQL:
+db: djpolldb
+u: djpolluser
+p: djpolluser
+host: localhost:5432
+
+master password PostgresSQL: pg@dmin
+
+server PostgresSQL 13:
+  user: postgres
+  pass: <blank>
+
+Admin:
+  user: cachepso
+  pass: cachepso
