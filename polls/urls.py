@@ -3,6 +3,7 @@ from django.urls import path
 
 from . import views  # dot "." means current app ( polls )
 
+app_name = "polls"  # namespace for app
 urlpatterns = [
     path('', views.index, name="index"),  # mapping to func index() in views.py
     # ex: /polls/5
