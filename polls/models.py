@@ -7,12 +7,14 @@ from django.utils import timezone
 class Question(models.Model):  # each class  will be a Table in DB
     question_text = models.CharField(max_length=200)  # property is a column
     pub_date = models.DateTimeField('date published')
+    # Python will automatically create
 
     def __str__(self):  # override parent's method to return human-readable str
         return self.question_text
 
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        now = timezone.now()
+        return now >= self.pub_date >= now - datetime.timedelta(days=1)
 
 
 class Choice(models.Model):
