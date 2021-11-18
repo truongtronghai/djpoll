@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>DjPoll app</title>
+  {% load static %}
+  <link type="text/css" rel="stylesheet" href="{% static 'polls/style.css' %}" />
 </head>
 <body>
 {% if five_latest_question_list %}

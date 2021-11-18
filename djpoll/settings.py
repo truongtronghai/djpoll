@@ -36,8 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    # telling Django app "polls" INSTALLED_APPS
+    'django.contrib.staticfiles',  # Writing first Django app, part 6
+    # telling Django add app "polls"
     'polls.apps.PollsConfig'
 ]
 
