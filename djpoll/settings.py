@@ -16,6 +16,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 # BASE_DIR = Path(__file__).resolve().parent.parent # for local running
 
 # for Heroku
+import django_heroku
+import dj_database_url
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -81,17 +83,20 @@ WSGI_APPLICATION = 'djpoll.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'djpolldb',
-        'USER': 'djpolluser',
-        'PASSWORD': 'djpolluser',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# config DB for Postgressql on localhost
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'djpolldb',
+#        'USER': 'djpolluser',
+#        'PASSWORD': 'djpolluser',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+# }
 
+# config DB for Postgressql on Heroku
+DATABASES = {'default': dj_database_url.parse('postgres://ravzbmfmeolppl:cb0b21adda93f02dba3dd9ea')}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -144,3 +149,6 @@ huong dan. Them vao se gay loi khong build duoc
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
