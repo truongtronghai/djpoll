@@ -96,7 +96,8 @@ WSGI_APPLICATION = 'djpoll.wsgi.application'
 # }
 
 # config DB for Postgressql on Heroku
-DATABASES = {'default': dj_database_url.parse('postgres://ravzbmfmeolppl:cb0b21adda93f02dba3dd9ea')}
+DATABASES = {'default': dj_database_url.parse(
+    'postgres://ravzbmfmeolppl:cb0b21adda93f02dba3dd9eaca231a5b6c240e04c654cd237820b1ad138f9332@ec2-54-146-116-84.compute-1.amazonaws.com:5432/d36q1e0836munc')}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
