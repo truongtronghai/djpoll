@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-r$*3^e-8ga4jjvaape(a&&fl$jz0d@zju$*p9$j3xfdk7rvaej
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'https://djpoll.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'djpoll.herokuapp.com/']
 
 
 # Application definition
@@ -131,9 +131,13 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # using for Heroku
 STATIC_URL = '/static/'
 
+'''
+Khong can phan STATICFILES_DIRS phia duoi day nhu cac tai lieu tren internet
+huong dan. Them vao se gay loi khong build duoc
+'''
 # Extra places for collectstatic to find static files.
 #STATICFILES_DIRS = (  # using for Heroku
-    #os.path.join(BASE_DIR, 'static'),
+#os.path.join(BASE_DIR, 'static'),
 #)
 
 # Default primary key field type
