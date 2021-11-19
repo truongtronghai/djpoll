@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DjPoll app</title>
+  {% load static %}
+  <link type="text/css" rel="stylesheet" href="{% static 'polls/style.css' %}" />
+</head>
+<body>
+{% if five_latest_question_list %}
+  <ul>
+      {% for question in five_latest_question_list %}
+        <li>
+          {# 'detail' is name of link in URLConf #}
+          {# 'polls' is namespace of app #}
+          <a href="{% url 'polls:detail' question.id %}">{{ question.question_text}}</a>
+        </li>
+      {% endfor %}
+  </ul>
+{% else %}
+  <p>
+      No polls are available
+  </p>
+{% endif %}
+</body>
+</html>
