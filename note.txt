@@ -13,3 +13,15 @@ server PostgresSQL 13:
 Admin:
   user: cachepso
   pass: cachepso
+
+============== Ghi chu cho Heroku =============
+Khi deploy len Heroku xong can tien hanh 2 giai doan sau:
+1. Cau hinh cho Static files, xem link sau: https://devcenter.heroku.com/articles/django-assets
+2. Cau hinh cho DB PostgresSQL:
+  -  Xem cac links sau:
+    https://devcenter.heroku.com/articles/django-app-configuration
+    https://stackoverflow.com/questions/45069750/django-with-postgresql-on-heroku-settings-databases-is-improperly-configured
+    https://stackoverflow.com/questions/35803713/migrate-databases-from-local-django-to-heroku
+  - Chu y: sau khi web app ket noi duoc DB va chay tot thi app o trang thai hoan toan moi. Django khong mang DB tren local len Heroku automatically
+  Do do, ta can phai dung console cua Heroku de chay lai lenh: python manage.py migrate
+  Va tao super user cho admin bang cau lenh: python manage.py createsuperuser
