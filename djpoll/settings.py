@@ -16,6 +16,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 # BASE_DIR = Path(__file__).resolve().parent.parent # for local running
 
 # for Heroku
+import django_heroku
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -144,3 +145,6 @@ huong dan. Them vao se gay loi khong build duoc
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
