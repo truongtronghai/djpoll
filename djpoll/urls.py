@@ -18,5 +18,5 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls'))  # append URLconf of app to project
+    path('', include('polls.urls'))  # append URLconf of app to project
 ]
