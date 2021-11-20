@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'djpoll.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'djpolldb',
         'USER': 'djpolluser',
         'PASSWORD': 'djpolluser',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '3306',
     }
 }
 
