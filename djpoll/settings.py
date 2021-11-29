@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',  # Writing first Django app, part 6
-    # telling Django add app "polls"
-    'polls.apps.PollsConfig'
+    # telling Django add apps
+    'polls.apps.PollsConfig',
+    'post.apps.PostConfig',
+    'ckeditor', 'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -122,10 +124,24 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
+STATIC_ROOT = 'static/'
 STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# media uploaded files
+MEDIA_ROOT = 'media/'
+MEDIA_URL = '/media/'
+
+# setting for ckeditor
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': 500,
+    },
+}

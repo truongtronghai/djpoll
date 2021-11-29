@@ -15,8 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+# import for Serving files uploaded by a user during development
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('polls.urls'))  # append URLconf of app to project
+    path('', include('polls.urls')),  # append URLconf of app to project
+    path('post/', include('post.urls')),
+    # Add CKEditor URL include to your project
+    path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
+
+# Serving files uploaded by a user during development
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

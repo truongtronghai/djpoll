@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+  {% load static %}
+</head>
+<body>
+<div id="root" class="w3-container">
+        <img src="{{ post.image_url }}" alt="{{ post.title }}" style="width:300px"  />
+        <h1>
+        {{ post.title }}
+        </h1>
+        <p>
+                {{ post.content | safe }}
+        </p>
+</div>
+
+</body>
+</html>
