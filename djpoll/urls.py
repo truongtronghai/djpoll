@@ -13,10 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import mimetypes
 from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls'))  # append URLconf of app to project
 ]
+
+# add minetype for javascript in case of browser prevent load it because of wrong minetype
+mimetypes.add_type("application/javascript", ".js", True)
