@@ -1,0 +1,6 @@
+Djpoll: djpoll.cachepso.com
+
+db: cachepso_djpolldb
+u: cachepso_dbuser
+p: p2&N_z[NEiI{
+host: localhost
